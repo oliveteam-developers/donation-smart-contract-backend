@@ -7,7 +7,7 @@ router.get('/', async (req, res) => {
     try {
         const result = await deployAddressModel.latest();
         return res.status(status.OK).json({
-            data: result.address,
+            address: result.address,
         });
     } catch (e) {
         console.log(e);
