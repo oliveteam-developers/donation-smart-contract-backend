@@ -16,6 +16,19 @@ const create = (data) => {
     });
 }
 
+const latest = () => {
+    return new Promise((resolve, reject) => {
+        db.query(`SELECT * FROM ${table} ORDER BY id DESC LIMIT 1`, (err, result) => {
+            if (err) {
+                reject(err);
+            } else {
+                resolve(result[0]);
+            }
+        });
+    });
+}
+
 module.exports = {
-    create: create
+    create: create,
+    latest: latest,
 }

@@ -9,7 +9,7 @@ app.use(bodyParser.urlencoded({ limit: '5mb', extended: true }));
 app.use(bodyParser.json({ limit: '5mb' }));
 app.use(cors());
 
-const router = require(__dirname + '/src/router');
+const router = require(`${__dirname}/src/router`);
 app.use(router);
 
 const host = process.env.HOST;
