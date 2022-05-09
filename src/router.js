@@ -7,8 +7,6 @@ router.get('/', (req, res) => {
     });
 });
 
-router.use('/factory', require(`${__dirname}/controllers/factory`));
-router.use('/donation', require(`${__dirname}/controllers/donation`));
-router.use('/address', require(`${__dirname}/controllers/address`));
+router.use('/contract', require(`${__dirname}/controllers/contract`));
 
 module.exports = router;
