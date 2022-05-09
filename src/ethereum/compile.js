@@ -26,9 +26,9 @@ const output = JSON.parse(solc.compile(JSON.stringify(input)));
 const buildPath = path.resolve(__dirname, 'build');
 fs.ensureDirSync(buildPath);
 
-for (let contract in output) {
+for (let contractName in output.contracts['Donation.sol']) {
     fs.outputJsonSync(
-        path.resolve(buildPath, contract.replace(':', '') + '.json'),
-        output[contract]
+        path.resolve(buildPath, `${contractName}.json`),
+        output.contracts['Donation.sol'][contractName]
     );
 }
