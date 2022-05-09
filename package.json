@@ -6,7 +6,9 @@
     "scripts": {
         "dev": "nodemon index.js",
         "compile": "cd src/ethereum && node compile.js",
-        "deploy": "cd src/ethereum && node deploy.js"
+        "deploy": "cd src/ethereum && node deploy.js",
+        "start:prod": "pm2 start index.js --name \"donation-smart-contract\"",
+        "restart:prod": "git pull && yarn && pm2 restart donation-smart-contract"
     },
     "author": "Olive Software",
     "license": "ISC",
