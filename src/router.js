@@ -2,9 +2,9 @@ const express = require('express');
 const router = express.Router();
 
 router.get('/', (req, res) => {
-  return res.json({
-    message: 'Donation Smart Contract'
-  });
+    return res.json({
+        message: 'Donation Smart Contract'
+    });
 });
 
 module.exports = router;
