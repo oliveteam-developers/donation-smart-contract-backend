@@ -5,8 +5,7 @@
     "main": "index.js",
     "scripts": {
         "dev": "nodemon index.js",
-        "clean": "cd src/ethereum && node clean.js",
-        "compile": "yarn clean && cd src/ethereum && node compile.js",
+        "compile": "cd src/ethereum && node compile.js",
         "deploy": "cd src/ethereum && node deploy.js"
     },
     "author": "Olive Software",
