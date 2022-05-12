@@ -6,8 +6,8 @@ contract Factory {
 
     address[] public deployedDonations;
 
-    function createDonation(uint minimum) public {
-        address donation = address(new Donation(minimum, msg.sender));
+    function createDonation(string memory name, uint minimum) public {
+        address donation = address(new Donation(name, minimum, msg.sender));
         deployedDonations.push(donation);
     }
 
@@ -30,6 +30,7 @@ contract Donation {
 
     address public manager;
     uint public minimumContribution;
+    string public contractName; 
     mapping(address => bool) public approvers;
     mapping(uint => Request) public requests;
     uint public requestsCount;
@@ -40,9 +41,14 @@ contract Donation {
         _;
     }
 
-    constructor(uint minimum, address creator) {
-        manager = creator;
+    constructor(string memory name, uint minimum, address creator) {
+        contractName = name;
         minimumContribution = minimum;
+        manager = creator;
+    }
+
+    function updateContractName(string memory name) public isManager {
+        contractName = name;
     }
 
     function contribute() public payable {
@@ -74,6 +80,19 @@ contract Donation {
         require(!request.complete);
         payable(request.recipient).transfer(request.value);
         request.complete = true;
+    }
+
+    function getDetail() public view returns (
+        string memory, address, uint, uint, uint, uint
+    ) {
+        return (
+            contractName,
+            manager,
+            minimumContribution,
+            requestsCount,
+            approversCount,
+            address(this).balance
+        );
     }
 
 }
