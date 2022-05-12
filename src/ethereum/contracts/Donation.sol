@@ -47,6 +47,10 @@ contract Donation {
         manager = creator;
     }
 
+    function updateContractName(string memory name) public isManager {
+        contractName = name;
+    }
+
     function contribute() public payable {
         require(msg.value > minimumContribution);
         approvers[msg.sender] = true;
