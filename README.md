@@ -1,4 +1,10 @@
-## Donation Smart Contract Backend
+## Donation Smart Contract - Backend
+
+#### Reference blogs:
+
+- [Part 1 - Solidity contract on Remix tool](https://blogs.olive-team.dev/donation-smart-contract-with-ethereum-part-1/)
+- [Part 2 - Backend](https://blogs.olive-team.dev/donation-smart-contract-with-ethereum-part-2/)
+- [Part 3 - Frontend](https://blogs.olive-team.dev/donation-smart-contract-with-ethereum-part-3/)
 
 ### 1. Installation
 
